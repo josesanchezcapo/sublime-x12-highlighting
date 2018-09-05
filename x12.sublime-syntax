@@ -1,0 +1,21 @@
+%YAML 1.2
+---
+name: x12
+file_extensions: [x12]
+scope: text.plain
+contexts:
+  main:
+    #header match
+    - match: "^ISA"
+      scope: entity.name.class
+    - match: "ST\\*"
+      scope: entity.name.function
+    - match: "NM1\\*PR"
+      scope: constant.other.placeholder
+    - match: "SE\\*"
+      scope: entity.other.inherited-class
+# Individual Segments
+    - match: "\\*"
+      scope: keyword.control.punctuation
+    - match: "~"
+      scope: support.constant
